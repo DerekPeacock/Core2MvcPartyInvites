@@ -1,0 +1,36 @@
+﻿@model Core2MvcPartyInvites.Models.Guest
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <header>
+        <h1>Party Invitation</h1>
+    </header>
+    <section>
+        <p>
+            Thanks @Model.Name for replying to my party invitation,
+        </p>
+        <p>
+            @if(Model.WillAttend == true)
+            {
+                <span>I am please to hear that you will be attending</span>
+            }
+            else
+            {
+                <span>I am sorry to hear that you will not be attending</span>
+            }
+        </p>
+        <p>
+            Click <a asp-action="ListAttendees">Here</a> to see who is coming!
+        </p>
+    </section>
+</body>
+</html>

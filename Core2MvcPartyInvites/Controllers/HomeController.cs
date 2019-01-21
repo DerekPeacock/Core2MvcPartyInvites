@@ -12,7 +12,34 @@ namespace Core2MvcPartyInvites.Controllers
     {
         public IActionResult Index()
         {
+            return View("Invite");
+        }
+
+        [HttpGet]
+        public IActionResult Reply()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Reply(Guest guest)
+        {
+            if(ModelState.IsValid)
+            {
+                Responses.AddResponse(guest);
+                return View("Thanks", guest);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public IActionResult ListAttendees(Guest guest)
+        {
+            var attendees = Responses.GetAttendees.Where(r => r.WillAttend == true);
+
+            return View(attendees);
         }
 
         public IActionResult About()

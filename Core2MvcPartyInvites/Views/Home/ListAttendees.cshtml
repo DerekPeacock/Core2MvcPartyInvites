@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Core2MvcPartyInvites.Models.Guest>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListAttendees</title>
+</head>
+<body>
+    <header>
+        <h1>List of all People Attending the Party</h1>
+    </header>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(Guest guest in Model)
+                {   <tr>
+                        <td>@guest.Name</td>
+                        <td>@guest.Email</td>
+                        <td>@guest.Phone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

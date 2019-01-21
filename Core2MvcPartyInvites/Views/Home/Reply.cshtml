@@ -1,0 +1,47 @@
+﻿@model Core2MvcPartyInvites.Models.Guest
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <title>Reply</title>
+</head>
+<body>
+    <header>
+        <h1>RSVP Party Invitation</h1>
+    </header>
+    <section>
+        <form asp-action="Reply" method="post">
+            <div asp-validation-summary="All"></div>
+            <p>
+                <label asp-for="Name">Your Name: </label>
+                <input asp-for="Name" type="text"/>
+            </p>
+            <p>
+                <label asp-for="Email">Your Email: </label>
+                <input asp-for="Email"/>
+            </p>
+            <p>
+                <label asp-for="Phone">Your Phone: </label>
+                <input asp-for="Phone"/>
+            </p>
+            <p>
+                <label>Will you be attending?</label>
+                <select asp-for="WillAttend">
+                    <option value="">Choose an option</option>
+                    <option value="true">Yes I will attend</option>
+                    <option value="false">No, I will not attend</option>
+                </select>
+            </p>
+            <p>
+                <button type="submit">Submit Reply</button>
+            </p>
+        </form>
+    </section>
+</body>
+</html>
